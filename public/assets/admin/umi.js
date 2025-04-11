@@ -103201,7 +103201,7 @@
                     onChange: e=>this.formChange("flow", e)
                 }, y.a.createElement(N["a"].Option, {
                     value: null
-                }, "\u65e0"), y.a.createElement(N["a"].Option, {
+                }, "\u65e0"),e.network == "tcp" && y.a.createElement(N["a"].Option, {
                     value: "xtls-rprx-vision"
                 }, "xtls-rprx-vision")))), y.a.createElement("div", {
                     className: "form-group"
