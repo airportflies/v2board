@@ -7,7 +7,7 @@ use App\Plugins\Telegram\Telegram;
 
 class UnBind extends Telegram {
     public $command = '/unbind';
-    public $description = '将Telegram账号从网站解绑';
+    public $description = '解绑Telegram账号';
 
     public function handle($message, $match = []) {
         if (!$message->is_private) return;
