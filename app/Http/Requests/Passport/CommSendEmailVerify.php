@@ -25,4 +25,22 @@ class CommSendEmailVerify extends FormRequest
             'email.email' => __('Email format is incorrect')
         ];
     }
+
+    public function getClientRealIp(): string
+    {
+        // Check for Cloudflare's CF-Connecting-IP header
+        if (request()->hasHeader('CF-Connecting-IP')) {
+            return request()->header('CF-Connecting-IP');
+        }
+
+        // Check for X-Forwarded-For header
+        if (request()->hasHeader('X-Forwarded-For')) {
+            // X-Forwarded-For may contain multiple IPs, take the first one
+            $ipList = explode(',', request()->header('X-Forwarded-For'));
+            return trim($ipList[0]);
+        }
+
+        // Fallback to REMOTE_ADDR if no proxy headers are found
+        return request()->getClientIp();
+    }
 }

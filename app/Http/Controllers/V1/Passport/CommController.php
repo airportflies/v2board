@@ -30,7 +30,7 @@ class CommController extends Controller
 
     public function sendEmailVerify(CommSendEmailVerify $request)
     {
-        $ip = $request->ip();
+        $ip = $request->getClientRealIp();
         if (RateLimiter::tooManyAttempts($ip, 3)) {
             abort(429, __('Too many requests, please try again later.'));
         }
@@ -115,4 +115,5 @@ class CommController extends Controller
         }
         return $suffix;
     }
+
 }
