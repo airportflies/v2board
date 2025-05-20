@@ -79139,6 +79139,1190 @@
             }
         }
     },
+    callTuic: function(e, t, n) {
+        "use strict";
+        n.r(t);
+        var r = n("p0pE")
+          , i = n.n(r)
+          , o = n("t3Un");
+        function a() {
+            a = function() {
+                return e
+            }
+            ;
+            var e = {}
+              , t = Object.prototype
+              , n = t.hasOwnProperty
+              , r = Object.defineProperty || function(e, t, n) {
+                e[t] = n.value
+            }
+              , i = "function" == typeof Symbol ? Symbol : {}
+              , o = i.iterator || "@@iterator"
+              , s = i.asyncIterator || "@@asyncIterator"
+              , l = i.toStringTag || "@@toStringTag";
+            function c(e, t, n) {
+                return Object.defineProperty(e, t, {
+                    value: n,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0
+                }),
+                e[t]
+            }
+            try {
+                c({}, "")
+            } catch (e) {
+                c = function(e, t, n) {
+                    return e[t] = n
+                }
+            }
+            function u(e, t, n, i) {
+                var o = t && t.prototype instanceof d ? t : d
+                  , a = Object.create(o.prototype)
+                  , s = new C(i || []);
+                return r(a, "_invoke", {
+                    value: _(e, n, s)
+                }),
+                a
+            }
+            function h(e, t, n) {
+                try {
+                    return {
+                        type: "normal",
+                        arg: e.call(t, n)
+                    }
+                } catch (e) {
+                    return {
+                        type: "throw",
+                        arg: e
+                    }
+                }
+            }
+            e.wrap = u;
+            var f = {};
+            function d() {}
+            function p() {}
+            function m() {}
+            var g = {};
+            c(g, o, function() {
+                return this
+            });
+            var v = Object.getPrototypeOf
+              , y = v && v(v(O([])));
+            y && y !== t && n.call(y, o) && (g = y);
+            var b = m.prototype = d.prototype = Object.create(g);
+            function w(e) {
+                ["next", "throw", "return"].forEach(function(t) {
+                    c(e, t, function(e) {
+                        return this._invoke(t, e)
+                    })
+                })
+            }
+            function x(e, t) {
+                function i(r, o, a, s) {
+                    var l = h(e[r], e, o);
+                    if ("throw" !== l.type) {
+                        var c = l.arg
+                          , u = c.value;
+                        return u && "object" == typeof u && n.call(u, "__await") ? t.resolve(u.__await).then(function(e) {
+                            i("next", e, a, s)
+                        }, function(e) {
+                            i("throw", e, a, s)
+                        }) : t.resolve(u).then(function(e) {
+                            c.value = e,
+                            a(c)
+                        }, function(e) {
+                            return i("throw", e, a, s)
+                        })
+                    }
+                    s(l.arg)
+                }
+                var o;
+                r(this, "_invoke", {
+                    value: function(e, n) {
+                        function r() {
+                            return new t(function(t, r) {
+                                i(e, n, t, r)
+                            }
+                            )
+                        }
+                        return o = o ? o.then(r, r) : r()
+                    }
+                })
+            }
+            function _(e, t, n) {
+                var r = "suspendedStart";
+                return function(i, o) {
+                    if ("executing" === r)
+                        throw new Error("Generator is already running");
+                    if ("completed" === r) {
+                        if ("throw" === i)
+                            throw o;
+                        return T()
+                    }
+                    for (n.method = i,
+                    n.arg = o; ; ) {
+                        var a = n.delegate;
+                        if (a) {
+                            var s = E(a, n);
+                            if (s) {
+                                if (s === f)
+                                    continue;
+                                return s
+                            }
+                        }
+                        if ("next" === n.method)
+                            n.sent = n._sent = n.arg;
+                        else if ("throw" === n.method) {
+                            if ("suspendedStart" === r)
+                                throw r = "completed",
+                                n.arg;
+                            n.dispatchException(n.arg)
+                        } else
+                            "return" === n.method && n.abrupt("return", n.arg);
+                        r = "executing";
+                        var l = h(e, t, n);
+                        if ("normal" === l.type) {
+                            if (r = n.done ? "completed" : "suspendedYield",
+                            l.arg === f)
+                                continue;
+                            return {
+                                value: l.arg,
+                                done: n.done
+                            }
+                        }
+                        "throw" === l.type && (r = "completed",
+                        n.method = "throw",
+                        n.arg = l.arg)
+                    }
+                }
+            }
+            function E(e, t) {
+                var n = t.method
+                  , r = e.iterator[n];
+                if (void 0 === r)
+                    return t.delegate = null,
+                    "throw" === n && e.iterator.return && (t.method = "return",
+                    t.arg = void 0,
+                    E(e, t),
+                    "throw" === t.method) || "return" !== n && (t.method = "throw",
+                    t.arg = new TypeError("The iterator does not provide a '" + n + "' method")),
+                    f;
+                var i = h(r, e.iterator, t.arg);
+                if ("throw" === i.type)
+                    return t.method = "throw",
+                    t.arg = i.arg,
+                    t.delegate = null,
+                    f;
+                var o = i.arg;
+                return o ? o.done ? (t[e.resultName] = o.value,
+                t.next = e.nextLoc,
+                "return" !== t.method && (t.method = "next",
+                t.arg = void 0),
+                t.delegate = null,
+                f) : o : (t.method = "throw",
+                t.arg = new TypeError("iterator result is not an object"),
+                t.delegate = null,
+                f)
+            }
+            function S(e) {
+                var t = {
+                    tryLoc: e[0]
+                };
+                1 in e && (t.catchLoc = e[1]),
+                2 in e && (t.finallyLoc = e[2],
+                t.afterLoc = e[3]),
+                this.tryEntries.push(t)
+            }
+            function k(e) {
+                var t = e.completion || {};
+                t.type = "normal",
+                delete t.arg,
+                e.completion = t
+            }
+            function C(e) {
+                this.tryEntries = [{
+                    tryLoc: "root"
+                }],
+                e.forEach(S, this),
+                this.reset(!0)
+            }
+            function O(e) {
+                if (e) {
+                    var t = e[o];
+                    if (t)
+                        return t.call(e);
+                    if ("function" == typeof e.next)
+                        return e;
+                    if (!isNaN(e.length)) {
+                        var r = -1
+                          , i = function t() {
+                            for (; ++r < e.length; )
+                                if (n.call(e, r))
+                                    return t.value = e[r],
+                                    t.done = !1,
+                                    t;
+                            return t.value = void 0,
+                            t.done = !0,
+                            t
+                        };
+                        return i.next = i
+                    }
+                }
+                return {
+                    next: T
+                }
+            }
+            function T() {
+                return {
+                    value: void 0,
+                    done: !0
+                }
+            }
+            return p.prototype = m,
+            r(b, "constructor", {
+                value: m,
+                configurable: !0
+            }),
+            r(m, "constructor", {
+                value: p,
+                configurable: !0
+            }),
+            p.displayName = c(m, l, "GeneratorFunction"),
+            e.isGeneratorFunction = function(e) {
+                var t = "function" == typeof e && e.constructor;
+                return !!t && (t === p || "GeneratorFunction" === (t.displayName || t.name))
+            }
+            ,
+            e.mark = function(e) {
+                return Object.setPrototypeOf ? Object.setPrototypeOf(e, m) : (e.__proto__ = m,
+                c(e, l, "GeneratorFunction")),
+                e.prototype = Object.create(b),
+                e
+            }
+            ,
+            e.awrap = function(e) {
+                return {
+                    __await: e
+                }
+            }
+            ,
+            w(x.prototype),
+            c(x.prototype, s, function() {
+                return this
+            }),
+            e.AsyncIterator = x,
+            e.async = function(t, n, r, i, o) {
+                void 0 === o && (o = Promise);
+                var a = new x(u(t, n, r, i),o);
+                return e.isGeneratorFunction(n) ? a : a.next().then(function(e) {
+                    return e.done ? e.value : a.next()
+                })
+            }
+            ,
+            w(b),
+            c(b, l, "Generator"),
+            c(b, o, function() {
+                return this
+            }),
+            c(b, "toString", function() {
+                return "[object Generator]"
+            }),
+            e.keys = function(e) {
+                var t = Object(e)
+                  , n = [];
+                for (var r in t)
+                    n.push(r);
+                return n.reverse(),
+                function e() {
+                    for (; n.length; ) {
+                        var r = n.pop();
+                        if (r in t)
+                            return e.value = r,
+                            e.done = !1,
+                            e
+                    }
+                    return e.done = !0,
+                    e
+                }
+            }
+            ,
+            e.values = O,
+            C.prototype = {
+                constructor: C,
+                reset: function(e) {
+                    if (this.prev = 0,
+                    this.next = 0,
+                    this.sent = this._sent = void 0,
+                    this.done = !1,
+                    this.delegate = null,
+                    this.method = "next",
+                    this.arg = void 0,
+                    this.tryEntries.forEach(k),
+                    !e)
+                        for (var t in this)
+                            "t" === t.charAt(0) && n.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0)
+                },
+                stop: function() {
+                    this.done = !0;
+                    var e = this.tryEntries[0].completion;
+                    if ("throw" === e.type)
+                        throw e.arg;
+                    return this.rval
+                },
+                dispatchException: function(e) {
+                    if (this.done)
+                        throw e;
+                    var t = this;
+                    function r(n, r) {
+                        return a.type = "throw",
+                        a.arg = e,
+                        t.next = n,
+                        r && (t.method = "next",
+                        t.arg = void 0),
+                        !!r
+                    }
+                    for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+                        var o = this.tryEntries[i]
+                          , a = o.completion;
+                        if ("root" === o.tryLoc)
+                            return r("end");
+                        if (o.tryLoc <= this.prev) {
+                            var s = n.call(o, "catchLoc")
+                              , l = n.call(o, "finallyLoc");
+                            if (s && l) {
+                                if (this.prev < o.catchLoc)
+                                    return r(o.catchLoc, !0);
+                                if (this.prev < o.finallyLoc)
+                                    return r(o.finallyLoc)
+                            } else if (s) {
+                                if (this.prev < o.catchLoc)
+                                    return r(o.catchLoc, !0)
+                            } else {
+                                if (!l)
+                                    throw new Error("try statement without catch or finally");
+                                if (this.prev < o.finallyLoc)
+                                    return r(o.finallyLoc)
+                            }
+                        }
+                    }
+                },
+                abrupt: function(e, t) {
+                    for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+                        var i = this.tryEntries[r];
+                        if (i.tryLoc <= this.prev && n.call(i, "finallyLoc") && this.prev < i.finallyLoc) {
+                            var o = i;
+                            break
+                        }
+                    }
+                    o && ("break" === e || "continue" === e) && o.tryLoc <= t && t <= o.finallyLoc && (o = null);
+                    var a = o ? o.completion : {};
+                    return a.type = e,
+                    a.arg = t,
+                    o ? (this.method = "next",
+                    this.next = o.finallyLoc,
+                    f) : this.complete(a)
+                },
+                complete: function(e, t) {
+                    if ("throw" === e.type)
+                        throw e.arg;
+                    return "break" === e.type || "continue" === e.type ? this.next = e.arg : "return" === e.type ? (this.rval = this.arg = e.arg,
+                    this.method = "return",
+                    this.next = "end") : "normal" === e.type && t && (this.next = t),
+                    f
+                },
+                finish: function(e) {
+                    for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                        var n = this.tryEntries[t];
+                        if (n.finallyLoc === e)
+                            return this.complete(n.completion, n.afterLoc),
+                            k(n),
+                            f
+                    }
+                },
+                catch: function(e) {
+                    for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                        var n = this.tryEntries[t];
+                        if (n.tryLoc === e) {
+                            var r = n.completion;
+                            if ("throw" === r.type) {
+                                var i = r.arg;
+                                k(n)
+                            }
+                            return i
+                        }
+                    }
+                    throw new Error("illegal catch attempt")
+                },
+                delegateYield: function(e, t, n) {
+                    return this.delegate = {
+                        iterator: O(e),
+                        resultName: t,
+                        nextLoc: n
+                    },
+                    "next" === this.method && (this.arg = void 0),
+                    f
+                }
+            },
+            e
+        }
+        var s = {
+            switchLoading: {},
+            saveLoading: !1
+        };
+        t["default"] = {
+            name: "serverTuic",
+            state: i()({}, s),
+            reducers: {
+                setState(e, t) {
+                    var n = t.payload;
+                    return i()({}, e, n)
+                }
+            },
+            effects: {
+                update(e, t) {
+                    var n = e.id
+                      , r = e.key
+                      , i = e.value
+                      , s = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/tuic/update", {
+                                        id: n,
+                                        [r]: i
+                                    });
+                                case 2:
+                                    if (t = e.sent,
+                                    200 === t.code) {
+                                        e.next = 5;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 5:
+                                    return e.next = 7,
+                                    s({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 7:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                },
+                drop(e, t) {
+                    var n = e.id
+                      , r = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/tuic/drop", {
+                                        id: n
+                                    });
+                                case 2:
+                                    if (t = e.sent,
+                                    200 === t.code) {
+                                        e.next = 5;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 5:
+                                    return e.next = 7,
+                                    r({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 7:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                },
+                copy(e, t) {
+                    var n = e.id
+                      , r = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/tuic/copy", {
+                                        id: n
+                                    });
+                                case 2:
+                                    if (t = e.sent,
+                                    200 === t.code) {
+                                        e.next = 5;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 5:
+                                    return e.next = 7,
+                                    r({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 7:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                },
+                save(e, t) {
+                    var n = e.params
+                      , r = e.callback
+                      , i = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    i({
+                                        type: "setState",
+                                        payload: {
+                                            saveLoading: !0
+                                        }
+                                    });
+                                case 2:
+                                    return e.next = 4,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/tuic/save", n);
+                                case 4:
+                                    return t = e.sent,
+                                    e.next = 7,
+                                    i({
+                                        type: "setState",
+                                        payload: {
+                                            saveLoading: !1
+                                        }
+                                    });
+                                case 7:
+                                    if (200 === t.code) {
+                                        e.next = 9;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 9:
+                                    return e.next = 11,
+                                    i({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 11:
+                                    "function" === typeof r && r();
+                                case 12:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                }
+            }
+        }
+    },
+    callAnyTLS: function(e, t, n) {
+        "use strict";
+        n.r(t);
+        var r = n("p0pE")
+          , i = n.n(r)
+          , o = n("t3Un");
+        function a() {
+            a = function() {
+                return e
+            }
+            ;
+            var e = {}
+              , t = Object.prototype
+              , n = t.hasOwnProperty
+              , r = Object.defineProperty || function(e, t, n) {
+                e[t] = n.value
+            }
+              , i = "function" == typeof Symbol ? Symbol : {}
+              , o = i.iterator || "@@iterator"
+              , s = i.asyncIterator || "@@asyncIterator"
+              , l = i.toStringTag || "@@toStringTag";
+            function c(e, t, n) {
+                return Object.defineProperty(e, t, {
+                    value: n,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0
+                }),
+                e[t]
+            }
+            try {
+                c({}, "")
+            } catch (e) {
+                c = function(e, t, n) {
+                    return e[t] = n
+                }
+            }
+            function u(e, t, n, i) {
+                var o = t && t.prototype instanceof d ? t : d
+                  , a = Object.create(o.prototype)
+                  , s = new C(i || []);
+                return r(a, "_invoke", {
+                    value: _(e, n, s)
+                }),
+                a
+            }
+            function h(e, t, n) {
+                try {
+                    return {
+                        type: "normal",
+                        arg: e.call(t, n)
+                    }
+                } catch (e) {
+                    return {
+                        type: "throw",
+                        arg: e
+                    }
+                }
+            }
+            e.wrap = u;
+            var f = {};
+            function d() {}
+            function p() {}
+            function m() {}
+            var g = {};
+            c(g, o, function() {
+                return this
+            });
+            var v = Object.getPrototypeOf
+              , y = v && v(v(O([])));
+            y && y !== t && n.call(y, o) && (g = y);
+            var b = m.prototype = d.prototype = Object.create(g);
+            function w(e) {
+                ["next", "throw", "return"].forEach(function(t) {
+                    c(e, t, function(e) {
+                        return this._invoke(t, e)
+                    })
+                })
+            }
+            function x(e, t) {
+                function i(r, o, a, s) {
+                    var l = h(e[r], e, o);
+                    if ("throw" !== l.type) {
+                        var c = l.arg
+                          , u = c.value;
+                        return u && "object" == typeof u && n.call(u, "__await") ? t.resolve(u.__await).then(function(e) {
+                            i("next", e, a, s)
+                        }, function(e) {
+                            i("throw", e, a, s)
+                        }) : t.resolve(u).then(function(e) {
+                            c.value = e,
+                            a(c)
+                        }, function(e) {
+                            return i("throw", e, a, s)
+                        })
+                    }
+                    s(l.arg)
+                }
+                var o;
+                r(this, "_invoke", {
+                    value: function(e, n) {
+                        function r() {
+                            return new t(function(t, r) {
+                                i(e, n, t, r)
+                            }
+                            )
+                        }
+                        return o = o ? o.then(r, r) : r()
+                    }
+                })
+            }
+            function _(e, t, n) {
+                var r = "suspendedStart";
+                return function(i, o) {
+                    if ("executing" === r)
+                        throw new Error("Generator is already running");
+                    if ("completed" === r) {
+                        if ("throw" === i)
+                            throw o;
+                        return T()
+                    }
+                    for (n.method = i,
+                    n.arg = o; ; ) {
+                        var a = n.delegate;
+                        if (a) {
+                            var s = E(a, n);
+                            if (s) {
+                                if (s === f)
+                                    continue;
+                                return s
+                            }
+                        }
+                        if ("next" === n.method)
+                            n.sent = n._sent = n.arg;
+                        else if ("throw" === n.method) {
+                            if ("suspendedStart" === r)
+                                throw r = "completed",
+                                n.arg;
+                            n.dispatchException(n.arg)
+                        } else
+                            "return" === n.method && n.abrupt("return", n.arg);
+                        r = "executing";
+                        var l = h(e, t, n);
+                        if ("normal" === l.type) {
+                            if (r = n.done ? "completed" : "suspendedYield",
+                            l.arg === f)
+                                continue;
+                            return {
+                                value: l.arg,
+                                done: n.done
+                            }
+                        }
+                        "throw" === l.type && (r = "completed",
+                        n.method = "throw",
+                        n.arg = l.arg)
+                    }
+                }
+            }
+            function E(e, t) {
+                var n = t.method
+                  , r = e.iterator[n];
+                if (void 0 === r)
+                    return t.delegate = null,
+                    "throw" === n && e.iterator.return && (t.method = "return",
+                    t.arg = void 0,
+                    E(e, t),
+                    "throw" === t.method) || "return" !== n && (t.method = "throw",
+                    t.arg = new TypeError("The iterator does not provide a '" + n + "' method")),
+                    f;
+                var i = h(r, e.iterator, t.arg);
+                if ("throw" === i.type)
+                    return t.method = "throw",
+                    t.arg = i.arg,
+                    t.delegate = null,
+                    f;
+                var o = i.arg;
+                return o ? o.done ? (t[e.resultName] = o.value,
+                t.next = e.nextLoc,
+                "return" !== t.method && (t.method = "next",
+                t.arg = void 0),
+                t.delegate = null,
+                f) : o : (t.method = "throw",
+                t.arg = new TypeError("iterator result is not an object"),
+                t.delegate = null,
+                f)
+            }
+            function S(e) {
+                var t = {
+                    tryLoc: e[0]
+                };
+                1 in e && (t.catchLoc = e[1]),
+                2 in e && (t.finallyLoc = e[2],
+                t.afterLoc = e[3]),
+                this.tryEntries.push(t)
+            }
+            function k(e) {
+                var t = e.completion || {};
+                t.type = "normal",
+                delete t.arg,
+                e.completion = t
+            }
+            function C(e) {
+                this.tryEntries = [{
+                    tryLoc: "root"
+                }],
+                e.forEach(S, this),
+                this.reset(!0)
+            }
+            function O(e) {
+                if (e) {
+                    var t = e[o];
+                    if (t)
+                        return t.call(e);
+                    if ("function" == typeof e.next)
+                        return e;
+                    if (!isNaN(e.length)) {
+                        var r = -1
+                          , i = function t() {
+                            for (; ++r < e.length; )
+                                if (n.call(e, r))
+                                    return t.value = e[r],
+                                    t.done = !1,
+                                    t;
+                            return t.value = void 0,
+                            t.done = !0,
+                            t
+                        };
+                        return i.next = i
+                    }
+                }
+                return {
+                    next: T
+                }
+            }
+            function T() {
+                return {
+                    value: void 0,
+                    done: !0
+                }
+            }
+            return p.prototype = m,
+            r(b, "constructor", {
+                value: m,
+                configurable: !0
+            }),
+            r(m, "constructor", {
+                value: p,
+                configurable: !0
+            }),
+            p.displayName = c(m, l, "GeneratorFunction"),
+            e.isGeneratorFunction = function(e) {
+                var t = "function" == typeof e && e.constructor;
+                return !!t && (t === p || "GeneratorFunction" === (t.displayName || t.name))
+            }
+            ,
+            e.mark = function(e) {
+                return Object.setPrototypeOf ? Object.setPrototypeOf(e, m) : (e.__proto__ = m,
+                c(e, l, "GeneratorFunction")),
+                e.prototype = Object.create(b),
+                e
+            }
+            ,
+            e.awrap = function(e) {
+                return {
+                    __await: e
+                }
+            }
+            ,
+            w(x.prototype),
+            c(x.prototype, s, function() {
+                return this
+            }),
+            e.AsyncIterator = x,
+            e.async = function(t, n, r, i, o) {
+                void 0 === o && (o = Promise);
+                var a = new x(u(t, n, r, i),o);
+                return e.isGeneratorFunction(n) ? a : a.next().then(function(e) {
+                    return e.done ? e.value : a.next()
+                })
+            }
+            ,
+            w(b),
+            c(b, l, "Generator"),
+            c(b, o, function() {
+                return this
+            }),
+            c(b, "toString", function() {
+                return "[object Generator]"
+            }),
+            e.keys = function(e) {
+                var t = Object(e)
+                  , n = [];
+                for (var r in t)
+                    n.push(r);
+                return n.reverse(),
+                function e() {
+                    for (; n.length; ) {
+                        var r = n.pop();
+                        if (r in t)
+                            return e.value = r,
+                            e.done = !1,
+                            e
+                    }
+                    return e.done = !0,
+                    e
+                }
+            }
+            ,
+            e.values = O,
+            C.prototype = {
+                constructor: C,
+                reset: function(e) {
+                    if (this.prev = 0,
+                    this.next = 0,
+                    this.sent = this._sent = void 0,
+                    this.done = !1,
+                    this.delegate = null,
+                    this.method = "next",
+                    this.arg = void 0,
+                    this.tryEntries.forEach(k),
+                    !e)
+                        for (var t in this)
+                            "t" === t.charAt(0) && n.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0)
+                },
+                stop: function() {
+                    this.done = !0;
+                    var e = this.tryEntries[0].completion;
+                    if ("throw" === e.type)
+                        throw e.arg;
+                    return this.rval
+                },
+                dispatchException: function(e) {
+                    if (this.done)
+                        throw e;
+                    var t = this;
+                    function r(n, r) {
+                        return a.type = "throw",
+                        a.arg = e,
+                        t.next = n,
+                        r && (t.method = "next",
+                        t.arg = void 0),
+                        !!r
+                    }
+                    for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+                        var o = this.tryEntries[i]
+                          , a = o.completion;
+                        if ("root" === o.tryLoc)
+                            return r("end");
+                        if (o.tryLoc <= this.prev) {
+                            var s = n.call(o, "catchLoc")
+                              , l = n.call(o, "finallyLoc");
+                            if (s && l) {
+                                if (this.prev < o.catchLoc)
+                                    return r(o.catchLoc, !0);
+                                if (this.prev < o.finallyLoc)
+                                    return r(o.finallyLoc)
+                            } else if (s) {
+                                if (this.prev < o.catchLoc)
+                                    return r(o.catchLoc, !0)
+                            } else {
+                                if (!l)
+                                    throw new Error("try statement without catch or finally");
+                                if (this.prev < o.finallyLoc)
+                                    return r(o.finallyLoc)
+                            }
+                        }
+                    }
+                },
+                abrupt: function(e, t) {
+                    for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+                        var i = this.tryEntries[r];
+                        if (i.tryLoc <= this.prev && n.call(i, "finallyLoc") && this.prev < i.finallyLoc) {
+                            var o = i;
+                            break
+                        }
+                    }
+                    o && ("break" === e || "continue" === e) && o.tryLoc <= t && t <= o.finallyLoc && (o = null);
+                    var a = o ? o.completion : {};
+                    return a.type = e,
+                    a.arg = t,
+                    o ? (this.method = "next",
+                    this.next = o.finallyLoc,
+                    f) : this.complete(a)
+                },
+                complete: function(e, t) {
+                    if ("throw" === e.type)
+                        throw e.arg;
+                    return "break" === e.type || "continue" === e.type ? this.next = e.arg : "return" === e.type ? (this.rval = this.arg = e.arg,
+                    this.method = "return",
+                    this.next = "end") : "normal" === e.type && t && (this.next = t),
+                    f
+                },
+                finish: function(e) {
+                    for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                        var n = this.tryEntries[t];
+                        if (n.finallyLoc === e)
+                            return this.complete(n.completion, n.afterLoc),
+                            k(n),
+                            f
+                    }
+                },
+                catch: function(e) {
+                    for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                        var n = this.tryEntries[t];
+                        if (n.tryLoc === e) {
+                            var r = n.completion;
+                            if ("throw" === r.type) {
+                                var i = r.arg;
+                                k(n)
+                            }
+                            return i
+                        }
+                    }
+                    throw new Error("illegal catch attempt")
+                },
+                delegateYield: function(e, t, n) {
+                    return this.delegate = {
+                        iterator: O(e),
+                        resultName: t,
+                        nextLoc: n
+                    },
+                    "next" === this.method && (this.arg = void 0),
+                    f
+                }
+            },
+            e
+        }
+        var s = {
+            switchLoading: {},
+            saveLoading: !1
+        };
+        t["default"] = {
+            name: "serverAnyTLS",
+            state: i()({}, s),
+            reducers: {
+                setState(e, t) {
+                    var n = t.payload;
+                    return i()({}, e, n)
+                }
+            },
+            effects: {
+                update(e, t) {
+                    var n = e.id
+                      , r = e.key
+                      , i = e.value
+                      , s = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/anytls/update", {
+                                        id: n,
+                                        [r]: i
+                                    });
+                                case 2:
+                                    if (t = e.sent,
+                                    200 === t.code) {
+                                        e.next = 5;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 5:
+                                    return e.next = 7,
+                                    s({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 7:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                },
+                drop(e, t) {
+                    var n = e.id
+                      , r = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/anytls/drop", {
+                                        id: n
+                                    });
+                                case 2:
+                                    if (t = e.sent,
+                                    200 === t.code) {
+                                        e.next = 5;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 5:
+                                    return e.next = 7,
+                                    r({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 7:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                },
+                copy(e, t) {
+                    var n = e.id
+                      , r = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/anytls/copy", {
+                                        id: n
+                                    });
+                                case 2:
+                                    if (t = e.sent,
+                                    200 === t.code) {
+                                        e.next = 5;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 5:
+                                    return e.next = 7,
+                                    r({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 7:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                },
+                save(e, t) {
+                    var n = e.params
+                      , r = e.callback
+                      , i = t.put;
+                    return a().mark(function e() {
+                        var t;
+                        return a().wrap(function(e) {
+                            while (1)
+                                switch (e.prev = e.next) {
+                                case 0:
+                                    return e.next = 2,
+                                    i({
+                                        type: "setState",
+                                        payload: {
+                                            saveLoading: !0
+                                        }
+                                    });
+                                case 2:
+                                    return e.next = 4,
+                                    Object(o["b"])("/" + window.settings.secure_path + "/server/anytls/save", n);
+                                case 4:
+                                    return t = e.sent,
+                                    e.next = 7,
+                                    i({
+                                        type: "setState",
+                                        payload: {
+                                            saveLoading: !1
+                                        }
+                                    });
+                                case 7:
+                                    if (200 === t.code) {
+                                        e.next = 9;
+                                        break
+                                    }
+                                    return e.abrupt("return");
+                                case 9:
+                                    return e.next = 11,
+                                    i({
+                                        type: "serverManage/getNodes"
+                                    });
+                                case 11:
+                                    "function" === typeof r && r();
+                                case 12:
+                                case "end":
+                                    return e.stop()
+                                }
+                        }, e)
+                    })()
+                }
+            }
+        }
+    },
     hlQx: function(e, t, n) {
         "use strict";
         n.r(t);
@@ -96615,23 +97799,22 @@
                     className: "col-lg-12 js-appear-enabled animated",
                     "data-toggle": "appear"
                 }, l.a.createElement("div", {
-                    className: "block border-bottom mb-0"
+                    className: "block border-bottom mb-0 v2board-stats-bar"
                 }, l.a.createElement("div", {
                     className: "block-content"
                 }, l.a.createElement("div", {
-                    className: "px-sm-3 clearfix"
-                }, l.a.createElement("div", { 
-                    className: "d-inline-block "
+                    className: "d-flex align-items-center"
+                }, l.a.createElement("div", {
+                    className: "pr-4 pr-sm-5 pl-0 pl-sm-3 "
                 }, l.a.createElement("i", {
                     className: "fa fa-users fa-2x text-gray-light float-right"
                 }), l.a.createElement("div", {
                     className: "text-muted mb-1",
                     style: { width: '120px' }
-                }, "\u5728\u7ebf\u4eba\u6570"), 
-                l.a.createElement("div", {
-                    className: "display-4 text-black font-w300"
-                }, t.online_user ? t.online_user : "0")) ,l.a.createElement("div", {
-                    className: "pl-5 d-inline-block"
+                }, "\u5728\u7ebf\u4eba\u6570"), l.a.createElement("div", {
+                    className: "display-4 text-black font-w300 mb-2"
+                }, t.online_user ? t.online_user : "0")), l.a.createElement("div", {
+                    className: "pr-4 pr-sm-5 pl-0 pl-sm-3 "
                 }, l.a.createElement("i", {
                     className: "fa fa-chart-line fa-2x text-gray-light float-right"
                 }), l.a.createElement("p", {
@@ -96640,7 +97823,16 @@
                     className: "display-4 text-black font-w300 mb-2"
                 }, t.day_income ? (t.day_income / 100).toFixed(2) : "0.00", l.a.createElement("span", {
                     className: "font-size-h5 font-w600 text-muted"
-                }, n.site.currency))))))), l.a.createElement("div", {
+                }, n.site.currency))) , l.a.createElement("div", {
+                    className: "pr-4 pr-sm-5 pl-0 pl-sm-3 "
+                }, l.a.createElement("i", {
+                    className: "fa fa-user fa-2x text-gray-light float-right"
+                }), l.a.createElement("div", {
+                    className: "text-muted mb-1",
+                    style: { width: '120px' }
+                }, "\u5b9e\u65f6\u6ce8\u518c"), l.a.createElement("div", {
+                    className: "display-4 text-black font-w300 mb-2"
+                }, t.day_register_total ? t.day_register_total : "0")))))), l.a.createElement("div", {
                     className: "col-lg-12 js-appear-enabled animated",
                     "data-toggle": "appear"
                 }, l.a.createElement("div", {
@@ -103277,6 +104469,635 @@
             }
         }
         )(z);
+        class wTuic extends y.a.Component {
+            constructor(e) {
+                super(e),
+                this.state = {
+                    server: this.props.record || {
+                        insecure: 0,
+                        disable_sni: 0,
+                        udp_relay_mode: "native",
+                        zero_rtt_handshake: 0,
+                        congestion_control: "cubic",
+                        rate: 1
+                    },
+                    visible: !1,
+                    childDrawer: {
+                        visible: !1
+                    }
+                }
+            }
+            onShow() {
+                this.setState({
+                    visible: !this.state.visible
+                })
+            }
+            save() {
+                var e = this.state.server;
+                this.props.dispatch({
+                    type: "serverTuic/save",
+                    params: e,
+                    callback: ()=>{
+                        this.onShow()
+                    }
+                })
+            }
+            showChildDrawer(e, t) {
+                this.setState({
+                    childDrawer: I()({},
+                    this.state.childDrawer, {
+                        visible: !this.state.childDrawer.visible,
+                        title: e,
+                        type: t
+                    })
+                })
+            }
+            formChange(e, t) {
+                this.setState({
+                    server: I()({},
+                    this.state.server, { [e] : t
+                    })
+                })
+            }
+            render() {
+                var e = this.state.server,
+                t = this.props.serverTuic.saveLoading,
+                n = this.props.serverManage.servers,
+                r = this.props.serverGroup.groups,
+                i = this.props.serverRoute.routes;
+                return y.a.createElement(y.a.Fragment, null, y.a.cloneElement(this.props.children, {
+                    onClick: ()=>this.setState({
+                        visible: !0
+                    })
+                }), y.a.createElement(R["a"], {
+                    id: "server",
+                    maskClosable: !0,
+                    title: e.id ? "\u7f16\u8f91\u8282\u70b9": "\u65b0\u5efa\u8282\u70b9",
+                    width: "80%",
+                    visible: this.state.visible,
+                    onClose: ()=>this.onShow()
+                },
+                y.a.createElement("div", null, y.a.createElement("div", {
+                    className: "row"
+                },
+                y.a.createElement("div", {
+                    className: "form-group col-8"
+                },
+                y.a.createElement("label", null, "\u8282\u70b9\u540d\u79f0"), y.a.createElement(s["a"], {
+                    placeholder: "\u8bf7\u8f93\u5165\u8282\u70b9\u540d\u79f0",
+                    value: e.name,
+                    onChange: e=>this.formChange("name", e.target.value)
+                })), y.a.createElement("div", {
+                    className: "form-group col-4"
+                },
+                y.a.createElement("label", null, "\u500d\u7387"), y.a.createElement(s["a"], {
+                    addonAfter: "x",
+                    placeholder: "\u8bf7\u8f93\u5165\u8282\u70b9\u500d\u7387",
+                    value: e.rate,
+                    onChange: e=>this.formChange("rate", e.target.value)
+                }))), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, "\u8282\u70b9\u6807\u7b7e"), y.a.createElement(N["a"], {
+                    mode: "tags",
+                    value: e.tags || [],
+                    style: {
+                        width: "100%"
+                    },
+                    placeholder: "\u8f93\u5165\u540e\u56de\u8f66\u6dfb\u52a0\u6807\u7b7e",
+                    onChange: e=>this.formChange("tags", e.length > 0 ? e: null)
+                })), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, "\u6743\u9650\u7ec4 ", y.a.createElement(B["a"], null, y.a.createElement("a", {
+                    href: "javascript:(0);"
+                },
+                "\u6dfb\u52a0\u6743\u9650\u7ec4"))), y.a.createElement(N["a"], {
+                    mode: "multiple",
+                    value: e.group_id,
+                    placeholder: "\u8bf7\u9009\u62e9\u6743\u9650\u7ec4",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("group_id", e)
+                },
+                r.map(e=>{
+                    return y.a.createElement(N["a"].Option, {
+                        key: e.id
+                    },
+                    e.name)
+                }))), y.a.createElement("div", {
+                    className: "row"
+                },
+                y.a.createElement("div", {
+                    className: "form-group col-md-12 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u8282\u70b9\u5730\u5740"), y.a.createElement(s["a"], {
+                    placeholder: "\u5730\u5740\u6216IP",
+                    value: e.host,
+                    onChange: e=>this.formChange("host", e.target.value)
+                }))), y.a.createElement("div", {
+                    className: "row"
+                },
+                y.a.createElement("div", {
+                    className: "form-group col-md-4 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u8fde\u63a5\u7aef\u53e3"), y.a.createElement(s["a"], {
+                    placeholder: "\u7528\u6237\u8fde\u63a5\u7aef\u53e3",
+                    value: e.port,
+                    onChange: e=>{
+                        this.formChange("port", e.target.value)
+                    }
+                })), y.a.createElement("div", {
+                    className: "form-group col-md-4 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u670d\u52a1\u7aef\u53e3"), y.a.createElement(s["a"], {
+                    placeholder: "\u670d\u52a1\u7aef\u5f00\u653e\u7aef\u53e3",
+                    value: e.server_port,
+                    onChange: e=>{
+                        this.formChange("server_port", e.target.value)
+                    }
+                })), y.a.createElement("div", {
+                    className: "form-group col-md-4 col-xs-12"
+                },
+                y.a.createElement("label", null, y.a.createElement(u["a"], {
+                    placement: "top",
+                    title: "\u4f7f\u7528\u81ea\u7b7e\u540d\u8bc1\u4e66\u9700\u8981\u5141\u8bb8\u4e0d\u5b89\u5168\uff0c\u7528\u6237\u624d\u53ef\u4ee5\u8fde\u63a5"
+                },
+                "\u5141\u8bb8\u4e0d\u5b89\u5168 ", y.a.createElement(m["a"], {
+                    type: "question-circle"
+                }))), y.a.createElement(N["a"], {
+                    value: parseInt(e.insecure) ? 1 : 0,
+                    placeholder: "\u5141\u8bb8\u4e0d\u5b89\u5168",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("insecure", e)
+                },
+                y.a.createElement(N["a"].Option, {
+                    key: 0,
+                    value: 0
+                },
+                "\u5426"), y.a.createElement(N["a"].Option, {
+                    key: 1,
+                    value: 1
+                },
+                "\u662f")))), y.a.createElement("div", {
+                    className: "row"
+                }, y.a.createElement("div", {
+                    className: "form-group col-md-6 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u7981\u7528SNI"), y.a.createElement(N["a"], {
+                    value: parseInt(e.disable_sni) ? 1 : 0,
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("disable_sni", e)
+                },
+                y.a.createElement(N["a"].Option, {
+                    key: 0,
+                    value: 0
+                },
+                "\u5426"), y.a.createElement(N["a"].Option, {
+                    key: 1,
+                    value: 1
+                },
+                "\u662f"))), y.a.createElement("div", {
+                    className: "form-group col-md-6 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u6570\u636e\u5305\u4e2d\u7ee7\u6a21\u5f0f"), y.a.createElement(N["a"], {
+                    value: e.udp_relay_mode ? e.udp_relay_mode : "native",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("udp_relay_mode", e)
+                },
+                y.a.createElement(N["a"].Option, {
+                    key: 0,
+                    value: "native"
+                },
+                "native"), y.a.createElement(N["a"].Option, {
+                    key: 1,
+                    value: "quic"
+                },
+                "quic")))), !parseInt(e.disable_sni) && y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, "\u670d\u52a1\u5668\u540d\u79f0\u6307\u793a(sni)"), y.a.createElement(s["a"], {
+                    placeholder: "\u5f53\u8282\u70b9\u5730\u5740\u4e0e\u8bc1\u4e66\u4e0d\u4e00\u81f4\u65f6\u7528\u4e8e\u8bc1\u4e66\u9a8c\u8bc1",
+                    value: e.server_name,
+                    onChange: e=>this.formChange("server_name", e.target.value)
+                })), y.a.createElement("div", {
+                    className: "row"
+                }, y.a.createElement("div", {
+                    className: "form-group col-md-6 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u62e5\u585e\u63a7\u5236\u7b97\u6cd5"), y.a.createElement(N["a"], {
+                    value: e.congestion_control ? e.congestion_control : "cubic",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("congestion_control", e)
+                },
+                y.a.createElement(N["a"].Option, {
+                    key: 0,
+                    value: "cubic"
+                },
+                "cubic"), y.a.createElement(N["a"].Option, {
+                    key: 1,
+                    value: "new_reno"
+                },
+                "new_reno"), y.a.createElement(N["a"].Option, {
+                    key: 2,
+                    value: "bbr"
+                },
+                "bbr"))), y.a.createElement("div", {
+                    className: "form-group col-md-6 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u5ba2\u6237\u7aef\u542f\u7528 0-RTT"), y.a.createElement(N["a"], {
+                    value: parseInt(e.zero_rtt_handshake) ? 1 : 0,
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("zero_rtt_handshake", e)
+                },
+                y.a.createElement(N["a"].Option, {
+                    key: 0,
+                    value: 0
+                },
+                "\u5426"), y.a.createElement(N["a"].Option, {
+                    key: 1,
+                    value: 1
+                },
+                "\u662f")))), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, y.a.createElement(u["a"], {
+                    placement: "top"
+                },
+                "\u7236\u8282\u70b9 ", y.a.createElement("a", {
+                    target: "_blank",
+                    href: "https://docs.v2board.com/use/node.html#\u7236\u8282\u70b9\u4e0e\u5b50\u8282\u70b9\u5173\u7cfb",
+                    rel: "noreferrer"
+                },
+                "\u66f4\u591a\u89e3\u7b54"))), y.a.createElement(N["a"], {
+                    value: e.parent_id || "",
+                    onChange: e=>this.formChange("parent_id", e),
+                    style: {
+                        width: "100%"
+                    }
+                },
+                y.a.createElement(N["a"].Option, {
+                    value: ""
+                },
+                "\u65e0"), n.map(t=>{
+                    if ("tuic" === t.type && t.id !== e.id) return y.a.createElement(N["a"].Option, {
+                        key: Math.random(),
+                        value: t.id
+                    },
+                    t.name)
+                }))), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, "\u8def\u7531\u7ec4"), y.a.createElement(N["a"], {
+                    mode: "multiple",
+                    value: e.route_id || [],
+                    placeholder: "\u8bf7\u9009\u62e9\u8def\u7531\u7ec4",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("route_id", e.length > 0 ? e: null)
+                },
+                i.map(e=>{
+                    return y.a.createElement(N["a"].Option, {
+                        key: e.id
+                    },
+                    e.remarks)
+                })))), y.a.createElement("div", {
+                    className: "v2board-drawer-action"
+                },
+                y.a.createElement(l["a"], {
+                    style: {
+                        marginRight: 8
+                    },
+                    onClick: ()=>this.onShow()
+                },
+                "\u53d6\u6d88"), y.a.createElement(l["a"], {
+                    loading: t,
+                    onClick: ()=>this.save(),
+                    type: "primary"
+                },
+                "\u63d0\u4ea4"))))
+            }
+        }
+        var mTuic = Object(_["c"])(e=>{
+            var t = e.serverTuic,
+            n = e.serverGroup,
+            r = e.serverManage,
+            i = e.serverRoute;
+            return {
+                serverTuic: t,
+                serverGroup: n,
+                serverManage: r,
+                serverRoute: i
+            }
+        })(wTuic);
+        class wAnyTLS extends y.a.Component {
+            constructor(e) {
+                super(e),
+                this.state = {
+                    server: this.props.record || {
+                        insecure: 0,
+                        rate: 1
+                    },
+                    visible: !1,
+                    childDrawer: {
+                        visible: !1
+                    }
+                }
+            }
+            onShow() {
+                this.setState({
+                    visible: !this.state.visible
+                })
+            }
+            save() {
+                var e = this.state.server;
+                this.props.dispatch({
+                    type: "serverAnyTLS/save",
+                    params: e,
+                    callback: ()=>{
+                        this.onShow()
+                    }
+                })
+            }
+            showChildDrawer(e, t) {
+                this.setState({
+                    childDrawer: I()({},
+                    this.state.childDrawer, {
+                        visible: !this.state.childDrawer.visible,
+                        title: e,
+                        type: t
+                    })
+                })
+            }
+            renderChildDrawer() {
+                var e = this.state.server
+                  , t = e.padding_scheme;
+                var r = {
+                    default: JSON.stringify([
+                        "stop=8",
+                        "0=30-30",
+                        "1=100-400",
+                        "2=400-500,c,500-1000,c,500-1000,c,500-1000,c,500-1000",
+                        "3=9-9,500-1000",
+                        "4=500-1000",
+                        "5=500-1000",
+                        "6=500-1000",
+                        "7=500-1000"
+                    ], null, 4)
+                };
+                return y.a.createElement("div", {
+                    id: "anytls-padding-scheme"
+                }, y.a.createElement("div", {
+                    className: "form-group"
+                }, y.a.createElement(F.a, {
+                    placeholder: (null === r || void 0 === r ? void 0 : r["default"]) || "",
+                    mode: "json",
+                    theme: "github",
+                    fontSize: 14,
+                    showPrintMargin: !0,
+                    showGutter: !0,
+                    highlightActiveLine: !0,
+                    value: t || "",
+                    onChange: e=>this.formChange("padding_scheme", e),
+                    setOptions: {
+                        enableBasicAutocompletion: !1,
+                        enableLiveAutocompletion: !1,
+                        enableSnippets: !1,
+                        showLineNumbers: !0,
+                        tabSize: 2
+                    },
+                    ref: "editor"
+                })));
+            }
+            formChange(e, t) {
+                this.setState({
+                    server: I()({},
+                    this.state.server, { [e] : t
+                    })
+                })
+            }
+            render() {
+                var e = this.state.server,
+                t = this.props.serverAnyTLS.saveLoading,
+                n = this.props.serverManage.servers,
+                r = this.props.serverGroup.groups,
+                i = this.props.serverRoute.routes;
+                return y.a.createElement(y.a.Fragment, null, y.a.cloneElement(this.props.children, {
+                    onClick: ()=>this.setState({
+                        visible: !0
+                    })
+                }), y.a.createElement(R["a"], {
+                    id: "server",
+                    maskClosable: !0,
+                    title: e.id ? "\u7f16\u8f91\u8282\u70b9": "\u65b0\u5efa\u8282\u70b9",
+                    width: "80%",
+                    visible: this.state.visible,
+                    onClose: ()=>this.onShow()
+                },
+                y.a.createElement("div", null, y.a.createElement("div", {
+                    className: "row"
+                },
+                y.a.createElement("div", {
+                    className: "form-group col-8"
+                },
+                y.a.createElement("label", null, "\u8282\u70b9\u540d\u79f0"), y.a.createElement(s["a"], {
+                    placeholder: "\u8bf7\u8f93\u5165\u8282\u70b9\u540d\u79f0",
+                    value: e.name,
+                    onChange: e=>this.formChange("name", e.target.value)
+                })), y.a.createElement("div", {
+                    className: "form-group col-4"
+                },
+                y.a.createElement("label", null, "\u500d\u7387"), y.a.createElement(s["a"], {
+                    addonAfter: "x",
+                    placeholder: "\u8bf7\u8f93\u5165\u8282\u70b9\u500d\u7387",
+                    value: e.rate,
+                    onChange: e=>this.formChange("rate", e.target.value)
+                }))), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, "\u8282\u70b9\u6807\u7b7e"), y.a.createElement(N["a"], {
+                    mode: "tags",
+                    value: e.tags || [],
+                    style: {
+                        width: "100%"
+                    },
+                    placeholder: "\u8f93\u5165\u540e\u56de\u8f66\u6dfb\u52a0\u6807\u7b7e",
+                    onChange: e=>this.formChange("tags", e.length > 0 ? e: null)
+                })), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, "\u6743\u9650\u7ec4 ", y.a.createElement(B["a"], null, y.a.createElement("a", {
+                    href: "javascript:(0);"
+                },
+                "\u6dfb\u52a0\u6743\u9650\u7ec4"))), y.a.createElement(N["a"], {
+                    mode: "multiple",
+                    value: e.group_id,
+                    placeholder: "\u8bf7\u9009\u62e9\u6743\u9650\u7ec4",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("group_id", e)
+                },
+                r.map(e=>{
+                    return y.a.createElement(N["a"].Option, {
+                        key: e.id
+                    },
+                    e.name)
+                }))), y.a.createElement("div", {
+                    className: "row"
+                },
+                y.a.createElement("div", {
+                    className: "form-group col-md-12 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u8282\u70b9\u5730\u5740"), y.a.createElement(s["a"], {
+                    placeholder: "\u5730\u5740\u6216IP",
+                    value: e.host,
+                    onChange: e=>this.formChange("host", e.target.value)
+                }))), y.a.createElement("div", {
+                    className: "row"
+                },
+                y.a.createElement("div", {
+                    className: "form-group col-md-4 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u8fde\u63a5\u7aef\u53e3"), y.a.createElement(s["a"], {
+                    placeholder: "\u7528\u6237\u8fde\u63a5\u7aef\u53e3",
+                    value: e.port,
+                    onChange: e=>{
+                        this.formChange("port", e.target.value)
+                    }
+                })), y.a.createElement("div", {
+                    className: "form-group col-md-4 col-xs-12"
+                },
+                y.a.createElement("label", null, "\u670d\u52a1\u7aef\u53e3"), y.a.createElement(s["a"], {
+                    placeholder: "\u670d\u52a1\u7aef\u5f00\u653e\u7aef\u53e3",
+                    value: e.server_port,
+                    onChange: e=>{
+                        this.formChange("server_port", e.target.value)
+                    }
+                })), y.a.createElement("div", {
+                    className: "form-group col-md-4 col-xs-12"
+                },
+                y.a.createElement("label", null, y.a.createElement(u["a"], {
+                    placement: "top",
+                    title: "\u4f7f\u7528\u81ea\u7b7e\u540d\u8bc1\u4e66\u9700\u8981\u5141\u8bb8\u4e0d\u5b89\u5168\uff0c\u7528\u6237\u624d\u53ef\u4ee5\u8fde\u63a5"
+                },
+                "\u5141\u8bb8\u4e0d\u5b89\u5168 ", y.a.createElement(m["a"], {
+                    type: "question-circle"
+                }))), y.a.createElement(N["a"], {
+                    value: parseInt(e.insecure) ? 1 : 0,
+                    placeholder: "\u5141\u8bb8\u4e0d\u5b89\u5168",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("insecure", e)
+                },
+                y.a.createElement(N["a"].Option, {
+                    key: 0,
+                    value: 0
+                },
+                "\u5426"), y.a.createElement(N["a"].Option, {
+                    key: 1,
+                    value: 1
+                },
+                "\u662f")))), y.a.createElement("div", {
+                    className: "row"
+                }, y.a.createElement("div", {
+                    className: "form-group col-md-12 col-xs-12"
+                }, y.a.createElement("label", null, y.a.createElement("a", {
+                    href: "javascript:void(0);",
+                    onClick: ()=>this.showChildDrawer("\u7f16\u8f91\u586b\u5145\u65b9\u6848", "padding_scheme")
+                }, "\u7f16\u8f91\u586b\u5145\u65b9\u6848")))), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, y.a.createElement(u["a"], {
+                    placement: "top"
+                },
+                "\u7236\u8282\u70b9 ", y.a.createElement("a", {
+                    target: "_blank",
+                    href: "https://docs.v2board.com/use/node.html#\u7236\u8282\u70b9\u4e0e\u5b50\u8282\u70b9\u5173\u7cfb",
+                    rel: "noreferrer"
+                },
+                "\u66f4\u591a\u89e3\u7b54"))), y.a.createElement(N["a"], {
+                    value: e.parent_id || "",
+                    onChange: e=>this.formChange("parent_id", e),
+                    style: {
+                        width: "100%"
+                    }
+                },
+                y.a.createElement(N["a"].Option, {
+                    value: ""
+                },
+                "\u65e0"), n.map(t=>{
+                    if ("anytls" === t.type && t.id !== e.id) return y.a.createElement(N["a"].Option, {
+                        key: Math.random(),
+                        value: t.id
+                    },
+                    t.name)
+                }))), y.a.createElement("div", {
+                    className: "form-group"
+                },
+                y.a.createElement("label", null, "\u8def\u7531\u7ec4"), y.a.createElement(N["a"], {
+                    mode: "multiple",
+                    value: e.route_id || [],
+                    placeholder: "\u8bf7\u9009\u62e9\u8def\u7531\u7ec4",
+                    style: {
+                        width: "100%"
+                    },
+                    onChange: e=>this.formChange("route_id", e.length > 0 ? e: null)
+                },
+                i.map(e=>{
+                    return y.a.createElement(N["a"].Option, {
+                        key: e.id
+                    },
+                    e.remarks)
+                })))), y.a.createElement("div", {
+                    className: "v2board-drawer-action"
+                },
+                y.a.createElement(l["a"], {
+                    style: {
+                        marginRight: 8
+                    },
+                    onClick: ()=>this.onShow()
+                },
+                "\u53d6\u6d88"), y.a.createElement(l["a"], {
+                    loading: t,
+                    onClick: ()=>this.save(),
+                    type: "primary"
+                },
+                "\u63d0\u4ea4")), y.a.createElement(R["a"], {
+                    closable: !1,
+                    id: "server",
+                    width: "80%",
+                    title: this.state.childDrawer.title,
+                    visible: this.state.childDrawer.visible,
+                    onClose: ()=>this.showChildDrawer()
+                }, this.renderChildDrawer())))
+            }
+        }
+        var mAnyTLS = Object(_["c"])(e=>{
+            var t = e.serverAnyTLS,
+            n = e.serverGroup,
+            r = e.serverManage,
+            i = e.serverRoute;
+            return {
+                serverAnyTLS: t,
+                serverGroup: n,
+                serverManage: r,
+                serverRoute: i
+            }
+        })(wAnyTLS);
         class q extends y.a.Component {
             constructor(e) {
                 super(e),
@@ -103315,9 +105136,17 @@
                     return y.a.createElement(g["a"], {
                         color: "#1A1A1A"
                     }, t);
+                case "tuic":
+                    return y.a.createElement(g["a"], {
+                        color: "#9400D3"
+                    }, t);
                 case "vless":
                     return y.a.createElement(g["a"], {
                         color: "#4080FF"
+                    }, t)
+                case "anytls":
+                    return y.a.createElement(g["a"], {
+                        color: "#FF8C00"
                     }, t)
                 }
             }
@@ -103331,8 +105160,12 @@
                     return "serverTrojan/".concat(t);
                 case "hysteria":
                     return "serverHysteria/".concat(t);
+                case "tuic":
+                    return "serverTuic/".concat(t);
                 case "vless":
-                    return "serverVless/".concat(t)
+                    return "serverVless/".concat(t);
+                case "anytls":
+                    return "serverAnyTLS/".concat(t);
                 }
             }
             copy(e) {
@@ -103386,7 +105219,17 @@
                         record: e
                     }, y.a.createElement("a", null, y.a.createElement(m["a"], {
                         type: "edit"
+                    }), " \u7f16\u8f91")), "tuic" === e.type && y.a.createElement(mTuic, {
+                        key: e.id,
+                        record: e
+                    }, y.a.createElement("a", null, y.a.createElement(m["a"], {
+                        type: "edit"
                     }), " \u7f16\u8f91")), "vless" === e.type && y.a.createElement(G, {
+                        key: e.id,
+                        record: e
+                    }, y.a.createElement("a", null, y.a.createElement(m["a"], {
+                        type: "edit"
+                    }), " \u7f16\u8f91")), "anytls" === e.type && y.a.createElement(mAnyTLS, {
                         key: e.id,
                         record: e
                     }, y.a.createElement("a", null, y.a.createElement(m["a"], {
@@ -103412,7 +105255,7 @@
                     dataIndex: "id",
                     key: "id",
                     width: 150,
-                    filters: ["Shadowsocks", "Vmess", "Trojan", "Hysteria", "Vless"].map(e=>({
+                    filters: ["Shadowsocks", "Vmess", "Trojan", "Hysteria", "Tuic", "Vless", "AnyTLS"].map(e=>({
                         text: e,
                         value: e
                     })),
@@ -103556,9 +105399,13 @@
                         key: Math.random()
                     }, y.a.createElement("a", null, this.getTypeTag("trojan", "Trojan")))), y.a.createElement(p["a"].Item, null, y.a.createElement(W, {
                         key: Math.random()
-                    }, y.a.createElement("a", null, this.getTypeTag("hysteria", "Hysteria")))), y.a.createElement(p["a"].Item, null, y.a.createElement(G, {
+                    }, y.a.createElement("a", null, this.getTypeTag("hysteria", "Hysteria")))), y.a.createElement(p["a"].Item, null, y.a.createElement(mTuic, {
                         key: Math.random()
-                    }, y.a.createElement("a", null, this.getTypeTag("vless", "VLess")))))
+                    }, y.a.createElement("a", null, this.getTypeTag("tuic", "Tuic")))), y.a.createElement(p["a"].Item, null, y.a.createElement(G, {
+                        key: Math.random()
+                    }, y.a.createElement("a", null, this.getTypeTag("vless", "VLess")))), y.a.createElement(p["a"].Item, null, y.a.createElement(mAnyTLS, {
+                        key: Math.random()
+                    }, y.a.createElement("a", null, this.getTypeTag("anytls", "AnyTLS")))))
                 }, y.a.createElement(l["a"], null, y.a.createElement(m["a"], {
                     type: "plus"
                 }))), y.a.createElement(s["a"], {
@@ -103688,6 +105535,16 @@
                 }, y.a.createElement("a", null, y.a.createElement(m["a"], {
                     type: "form"
                 }), " \u7f16\u8f91")), "trojan" === (null === (n = this.record) || void 0 === n ? void 0 : n.type) && y.a.createElement(C["a"], {
+                    key: Math.random(),
+                    record: this.record
+                }, y.a.createElement("a", null, y.a.createElement(m["a"], {
+                    type: "form"
+                }), " \u7f16\u8f91")), "tuic" === (null === (r = this.record) || void 0 === r ? void 0 : r.type) && y.a.createElement(mTuic, {
+                    key: Math.random(),
+                    record: this.record
+                }, y.a.createElement("a", null, y.a.createElement(m["a"], {
+                    type: "form"
+                }), " \u7f16\u8f91")), "anytls" === (null === (r = this.record) || void 0 === r ? void 0 : r.type) && y.a.createElement(mAnyTLS, {
                     key: Math.random(),
                     record: this.record
                 }, y.a.createElement("a", null, y.a.createElement(m["a"], {
@@ -108486,6 +110343,9 @@
                 namespace: "serverHysteria"
             }, n("hjwd").default)),
             u.model(i()({
+                namespace: "serverTuic"
+            }, n("callTuic").default)),
+            u.model(i()({
                 namespace: "serverManage"
             }, n("1dD/").default)),
             u.model(i()({
@@ -108503,6 +110363,9 @@
             u.model(i()({
                 namespace: "serverVmess"
             }, n("wtDr").default)),
+            u.model(i()({
+                namespace: "serverAnyTLS"
+            }, n("callAnyTLS").default)),
             u.model(i()({
                 namespace: "stat"
             }, n("T4gb").default)),
