@@ -117,6 +117,12 @@ class TicketController extends Controller
                 $auto_message,
                 1
             );
+            $ticketService = new TicketService();
+            $ticketService->replyByAdmin(
+                $ticket->id,
+                "[自动回复] 如果您还需要帮助 请继续描述您遇到的问题.",
+                1
+            );
             DB::commit();
             $this->sendNotify($ticket, $request->input('message'),$request->user['id']);
             return response([
