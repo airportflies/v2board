@@ -4,7 +4,7 @@ namespace App\Plugins\Telegram\Commands;
 
 use App\Plugins\Telegram\Telegram;
 
-class Bind extends Telegram {
+class Start extends Telegram {
     public $command = '/start';
     public $description= '启动bot';
 
