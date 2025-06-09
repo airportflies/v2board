@@ -39,7 +39,7 @@ class EPayPlus {
         $referer = $_SERVER['HTTP_REFERER'] ?? '';
         $host = $_SERVER['HTTP_HOST'] ?? '';
         $uri = $_SERVER['REQUEST_URI'] ?? '';
-        $return_url = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http') . '://' . $referer ? $referer . $uri : ($host ? 'http://' . $host . $uri : $order['return_url']);
+        $return_url = $order['return_url'];
         $params = [
             'money' => $order['total_amount'] / 100,
             'name' => $order['trade_no'],
