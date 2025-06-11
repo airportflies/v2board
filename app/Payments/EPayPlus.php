@@ -36,15 +36,18 @@ class EPayPlus {
 
     public function pay($order)
     {
-        $referer = $_SERVER['HTTP_REFERER'] ?? '';
-        $host = $_SERVER['HTTP_HOST'] ?? '';
-        $uri = $_SERVER['REQUEST_URI'] ?? '';
-        $return_url = $order['return_url'];
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+        $uri = $protocol . $_SERVER['HTTP_HOST']. $_SERVER['REQUEST_URI'];
+        if ( $order['notify_url'] == "http://a.com") {
+            $notify_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        } else {
+            $notify_url = $order['notify_url']
+        }
         $params = [
             'money' => $order['total_amount'] / 100,
             'name' => $order['trade_no'],
-            'notify_url' => $order['notify_url'],
-            'return_url' => $return_url,
+            'notify_url' => $notify_url,
+            'return_url' => $order['return_url'],
             'out_trade_no' => $order['trade_no'],
             'type' => $this->config['type'] ?? '',
             'pid' => $this->config['pid']
