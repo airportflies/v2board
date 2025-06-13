@@ -41,7 +41,7 @@ class EPayPlus {
         if ( $order['notify_url'] == "http://a.com") {
             $notify_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         } else {
-            $notify_url = $order['notify_url']
+            $notify_url = $order['notify_url'];
         }
         $params = [
             'money' => $order['total_amount'] / 100,
