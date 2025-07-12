@@ -26,6 +26,11 @@ class Client
         if (!$user) {
             abort(403, 'token is error');
         }
+        if (config('app.subscribeurl_auth') == "true") {
+            if (!str_contains($request->getHost(), $user->uuid)) {
+                abort(403, $request->getHost().' subscribeurl is error');
+            }
+        }
         $request->merge([
             'user' => $user
         ]);
