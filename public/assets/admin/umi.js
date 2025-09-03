@@ -6000,7 +6000,31 @@
                 }, f.a.createElement(l["a"], {
                     checked: parseInt(r.show_info_to_server_enable),
                     onChange: e=>this.set("subscribe", "show_info_to_server_enable", e ? 1 : 0)
-                })))), f.a.createElement(s["a"].TabPane, {
+                })), f.a.createElement(m, {
+                    title: "\u8ba2\u9605\u94fe\u63a5\u751f\u6548\u6a21\u5f0f",
+                    description: "\u7528\u6237\u83b7\u53d6\u8ba2\u9605\u94fe\u63a5\u540e\u7684\u6709\u6548\u671f\u3002"
+                }, f.a.createElement("select", {
+                    onChange: e=>this.set("subscribe", "show_subscribe_method", e.target.value),
+                    className: "form-control",
+                    value: r.show_subscribe_method,
+                    placeholder: "\u8bf7\u9009\u62e9"
+                }, f.a.createElement("option", {
+                    value: 0
+                }, "\u6c38\u4e45\u6709\u6548"), f.a.createElement("option", {
+                    value: 1
+                }, "\u4e00\u6b21\u6027\u6709\u6548"), f.a.createElement("option", {
+                    value: 2
+                }, "\u9650\u65f6\u6709\u6548"))), r.show_subscribe_method == 2 ? f.a.createElement(m, {
+                    isChildren: !0,
+                    title: "\u8ba2\u9605\u94fe\u63a5\u6709\u6548\u65f6\u95f4\u0028\u5206\u949f\u0029",
+                    description: "\u8ba2\u9605\u94fe\u63a5\u83b7\u53d6\u540e\u7ecf\u8fc7\u8be5\u65f6\u95f4\u5c06\u5931\u6548\u3002"
+                }, f.a.createElement("input", {
+                    type: "text",
+                    className: "form-control",
+                    placeholder: "\u8bf7\u8f93\u5165",
+                    defaultValue: r.show_subscribe_expire,
+                    onChange: e=>this.set("safe", "show_subscribe_expire", e.target.value)
+                })) : "")), f.a.createElement(s["a"].TabPane, {
                     tab: "\u5145\u503c",
                     key: "deposit"
                 }, f.a.createElement("div", {
