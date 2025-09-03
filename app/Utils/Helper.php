@@ -102,20 +102,17 @@ class Helper
 
     public static function getSubscribeUrl($token)
     {
-<<<<<<< HEAD
         $strs = 'QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm';
         $randstr = substr(str_shuffle($strs), 0, rand(4,8));
 
-=======
         $submethod = (int)config('v2board.show_subscribe_method', 0);
->>>>>>> upstream/master
         $path = config('v2board.subscribe_path', '/api/v1/client/subscribe');
         if (empty($path)) {
             $path = '/api/v1/client/subscribe';
         } 
         $subscribeUrls = explode(',', config('v2board.subscribe_url'));
         $subscribeUrl = $subscribeUrls[rand(0, count($subscribeUrls) - 1)];
-<<<<<<< HEAD
+
         if (strpos($subscribeUrl, '{uuid}') !== false) {
             $user = User::where('token', $token)->first();
             $subscribeUrl = str_replace('{uuid}', $user->uuid, $subscribeUrl);
@@ -123,9 +120,7 @@ class Helper
         } else if (strpos($subscribeUrl, "*") !== false) {
             $subscribeUrl = str_replace("*", $randstr, $subscribeUrl);
         }
-        if ($subscribeUrl) return $subscribeUrl . $path;
-        return url($path);
-=======
+            
         switch ($submethod) {
             case 0:
                 $path = "{$path}?token={$token}";
@@ -160,7 +155,6 @@ class Helper
                 return url($path);
                 break;
         }
->>>>>>> upstream/master
     }
 
     public static function randomPort($range) {
