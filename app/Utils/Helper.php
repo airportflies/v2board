@@ -2,10 +2,7 @@
 
 namespace App\Utils;
 use App\Models\User;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Cache;
->>>>>>> upstream/master
 
 class Helper
 {
